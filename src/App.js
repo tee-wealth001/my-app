@@ -36,7 +36,7 @@ function App() {
   const deleteTask = async (id) => {
 
     await deleteServerTask(id)
-    setTasks(tasks.filter((task) => task.id != id));
+    setTasks(tasks.filter((task) => task.id !== id));
   }
 
   //set reminder
@@ -45,7 +45,7 @@ function App() {
     const taskToToggle = await fetchSingleTask(id)
     const updateTask = { ...taskToToggle, reminder: !taskToToggle.reminder }
     const data = await updateTaskToServer(id, updateTask)
-    setTasks(tasks.map((task) => task.id == id ? { ...task, reminder: data.reminder } : task))
+    setTasks(tasks.map((task) => task.id === id ? { ...task, reminder: data.reminder } : task))
   }
 
   const emptyRecordMessage = 'No Record Found'

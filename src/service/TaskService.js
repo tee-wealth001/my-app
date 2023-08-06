@@ -21,6 +21,7 @@ export const deleteServerTask = async (id) => {
     const res = await fetch(serverUrl + `/tasks/${id}`, {
         method: 'DELETE'
     })
+    console.log(res)
 }
 
 // add task
